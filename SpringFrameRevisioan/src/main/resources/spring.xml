@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    ">
+    <context:annotation-config></context:annotation-config>
+    <context:component-scan base-package="com.ciq"></context:component-scan>
+    <!-- dataSource name is user wish name in bean id -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    <property name="url" value="jdbc:mysql://localhost:3306/hibernate"></property>
+    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+    <property name="username" value="root"></property>
+    <property name="password" value="sql799"></property>
+    </bean>
+    <!-- daol is user wish bean name  -->
+    <bean id="daol" class="com.ciq.dao.DaoImpli">
+    <!-- data is DataSource instance name in DAo(daol) we injecting dataSource in it -->
+    <property name="data" ref="dataSource"></property>
+    </bean>
+    <!-- service is user defined bean name and dao is instance name of DAoLayer
+    
+    and we have to inject daol bean into dao  -->
+    <bean id="service" class="com.dao.service.ServiceImpli">
+    <property name="dao" ref="daol"></property>
+    
+    </bean>
+     <!-- controller is user defined bean name and serv is instance name of proService
+    
+    and we have to inject service bean into serv  -->
+    
+    <bean id="controller" class="com.ciq.controller.ProductController">
+    <property name="serv" ref="service"></property>
+    </bean>
+    
+    </beans>
+ 
