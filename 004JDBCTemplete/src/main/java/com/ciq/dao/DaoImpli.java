@@ -23,6 +23,7 @@ public class DaoImpli implements DaoLayer {
 
 	@Autowired
 	JdbcTemplate jdbcTemp;
+	
 
 	public void add(Product product) {
 		// TODO Auto-generated method stub

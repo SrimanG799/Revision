@@ -2,6 +2,7 @@ package com.ciq.Control;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,8 @@ import com.ciq.service.ServiceImpli;
 public class MVCControl {
 	@Autowired
 	EmpService serviceImpli;
+	
+	
 	@RequestMapping(value = "/wel",method = RequestMethod.GET)
 	public String welcme()
 	{

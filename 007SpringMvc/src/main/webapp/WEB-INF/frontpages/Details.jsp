@@ -38,7 +38,8 @@ for(Employee emp:AllEmp)
 
 
 <%
-}%>
+}
+%>
 </table>
 
 </body>

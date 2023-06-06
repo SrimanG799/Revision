@@ -1,12 +1,13 @@
 package com.ciq.BankController;
 
-import org.slf4j.LoggerFactory;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ciq.Bankservice.ServiceBank;
 import com.ciq.model.BankDTO;
 
-import ch.qos.logback.classic.Logger;
+
 
 
 
@@ -14,14 +15,12 @@ public class ControllerBank {
 	@Autowired
 	ServiceBank serv;
 	
-	  
+	 private static final Logger log=Logger.getLogger(ControllerBank.class) ;
 	public void dipositMoney(String bank,String accno,double amount) {
-		  Logger loger=(Logger) LoggerFactory.getLogger(ControllerBank.class);
-
-		loger.info("dopisit begin");
-		loger.atDebug();
+		
+		 log.debug("info deposit");
 		serv.dipositMoney(bank, accno, amount);
-		loger.info("deposit end");
+		 log.debug("info deposit2");
 		
 	}
 	public void withDrawMoney(String bank,String accno,double amount) {

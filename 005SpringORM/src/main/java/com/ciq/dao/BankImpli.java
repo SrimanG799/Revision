@@ -9,12 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.ciq.model.BankDTO;
 import com.ciq.model.TransactionHistory;
 
-import ch.qos.logback.classic.Logger;
+
 
 public class BankImpli implements BankDao {
 	@Autowired
@@ -22,8 +24,7 @@ public class BankImpli implements BankDao {
 
 	public void dipositMoney(String bank, String accno, double amount) {
 		// TODO Auto-generated method stub
-		Logger loger = (Logger) LoggerFactory.getLogger(BankImpli.class);
-		loger.debug("Debug begin");
+		
 
 		try {
 			Connection con = data.getConnection();
@@ -42,15 +43,13 @@ public class BankImpli implements BankDao {
 			pst.setString(2, accno);
 			pst.executeUpdate();
 			System.out.println("succesfully diposited");
-			loger.debug("debug ended");
-
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		loger.error("error");
-
+	
 	}
 
 	public void withDrawMoney(String bank, String accno, double amount) {

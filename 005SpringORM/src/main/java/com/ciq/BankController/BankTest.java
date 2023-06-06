@@ -27,12 +27,12 @@ public class BankTest {
 	  // cp.createAccount("hdfc011", "prasad", "hdfc", 10000.00, "prasad");
 	       
 	       
-       cp.moneyTransfor("hdfc", "hdfc008", "raghu", 1000.00, "sbi", "sbi008");
+      // cp.moneyTransfor("hdfc", "hdfc008", "raghu", 1000.00, "sbi", "sbi008");
 //	       System.out.println(cp.balanceEnquery("sbi", "sbi003"));
 //	       System.out.println(cp.balanceEnquery("hdfc", "hdfc003"));
 	       
 	    //  cp.moneyTransfor("sbi", "sbi010", "ravi", 1000.00, "hdfc", "hdfc008"); 
-	     //  cp.dipositMoney("sbi", "sbi008", 5000.00);
+	       cp.dipositMoney("sbi", "sbi008", 5000.00);
 	       
 	}  
 	

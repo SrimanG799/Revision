@@ -63,5 +63,7 @@ public class TempleteConfig {
 		
 	}
 	
+	
+	
 //while we are using @Bean beans dont mention @Component on Dao,Service,Controller
 }
